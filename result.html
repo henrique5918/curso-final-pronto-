@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado do Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seu Resultado</h1>
+        <p id="result"></p>
+        <script>
+            function getQueryParam(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            const place = getQueryParam('place');
+            const food = getQueryParam('food');
+            const animal = getQueryParam('animal');
+
+            let result = '';
+
+            if (place === 'praia') {
+                result += 'Você adora relaxar à beira-mar. ';
+            } else if (place === 'montanha') {
+                result += 'Você ama aventuras nas alturas. ';
+            } else if (place === 'cidade') {
+                result += 'Você é urbano e gosta de agitação. ';
+            } else {
+                result += 'Você aprecia a tranquilidade do campo. ';
+            }
+
+            if (food === 'italiana') {
+                result += 'Você é sofisticado e adora sabores clássicos. ';
+            } else if (food === 'asiatica') {
+                result += 'Você é aventureiro e aprecia diversidade. ';
+            } else if (food === 'mexicana') {
+                result += 'Você é vibrante e cheio de energia. ';
+            } else {
+                result += 'Você valoriza o conforto e a tradição. ';
+            }
+
+            if (animal === 'cachorro') {
+                result += 'Você é leal e amigável. ';
+            } else if (animal === 'gato') {
+                result += 'Você é independente e misterioso. ';
+            } else if (animal === 'passaro') {
+                result += 'Você é livre e gosta de explorar. ';
+            } else {
+                result += 'Você é calmo e gosta de um ambiente tranquilo. ';
+            }
+
+            document.getElementById('result').innerText = result;
+        </script>
+    </div>
+</body>
+</html>
